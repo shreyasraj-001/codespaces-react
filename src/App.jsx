@@ -145,10 +145,10 @@ const Navbar = () => {
 };
 
 const Hero = () => (
-  <section id="home" className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-[#ffffff]">
+  <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#ffffff] py-20 md:py-0">
     <div className="absolute inset-0 z-0">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,var(--bg-texture)_0%,var(--bg-pure)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.6)_0%,rgba(244,237,237,0.2)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255, 255, 255, 0.6)_0%,rgba(255, 255, 255, 0.2)_100%)]" />
       <div className="absolute inset-0 opacity-[0.035] pointer-events-none">
         <svg width="100%" height="100%">
           <filter id="grain">
@@ -163,8 +163,9 @@ const Hero = () => (
       <div className="absolute bottom-[15%] left-[5%] orb orb-2" />
     </div>
 
-    <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-      <div className="md:col-span-7 text-center md:text-left">
+    <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 w-full grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-12 items-center">
+      {/* Text Content */}
+      <div className="md:col-span-7 text-center md:text-left order-1 md:order-1">
         <Reveal delay={200}>
           <span className="text-[11px] uppercase tracking-[6px] text-[#8c827f] mb-6 block font-light">
             Hyderabad, India & Beyond
@@ -173,7 +174,7 @@ const Hero = () => (
         <Reveal delay={400}>
           <h1 className="font-serif text-5xl md:text-8xl italic text-[#1a1615] leading-[1.1] mb-8">
             Capturing the <br />
-            <span className="text-[#c5a391] not-italic font-normal">Soul of Your</span> <br />
+            <span className="text-[#e08b73] not-italic font-normal">Soul of Your</span> <br />
             Legacy
           </h1>
         </Reveal>
@@ -190,31 +191,32 @@ const Hero = () => (
         </Reveal>
       </div>
 
-      <div className="hidden md:flex md:col-span-5 justify-center relative group">
-        <Reveal delay={500} direction="right">
-          <div className="relative w-80 h-80 lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden border border-[#c5a391]/20 p-2 transform group-hover:scale-[1.02] transition-transform duration-1000 ease-cinematic">
-            <div className="absolute inset-0 bg-[#f4eded] flex items-center justify-center overflow-hidden rounded-full">
-               <div className="w-full h-full bg-gradient-to-tr from-[#f4eded] to-[#ffffff] opacity-50" />
-               <div className="absolute inset-0 flex items-center justify-center p-12">
-                  <div className="w-full h-full border border-[#1a1615]/10 rounded-full flex items-center justify-center text-[#1a1615]/20 font-serif italic text-xl">
-                    Editorial Vision
-                  </div>
-               </div>
+      {/* Image Content - Now visible on mobile (removed 'hidden') */}
+      <div className="flex md:col-span-5 justify-center relative group order-2 md:order-2">
+        <Reveal delay={600} direction="up"> {/* Changed direction to 'up' for better mobile flow */}
+          <div className="relative group p-3 md:p-4 border border-[#1a1615]/5 rounded-[40px] md:rounded-[60px] shadow-sm hover:shadow-xl transition-all duration-1000">
+            <div className="relative w-[280px] h-[350px] md:w-80 md:h-[400px] lg:w-[350px] lg:h-[450px] bg-[#fdfbf9] rounded-[32px] md:rounded-[48px] overflow-hidden z-10">
+              <div 
+                className="w-full h-full bg-[url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')] bg-cover bg-center transition-transform duration-[4000ms] group-hover:scale-110" 
+              />
             </div>
-          </div>
-          <div className="absolute -bottom-4 -left-4 bg-[#ffffff] p-6 rounded-full shadow-2xl animate-float pointer-events-none">
-            <div className="flex flex-col items-center">
-              <span className="text-[10px] uppercase tracking-[3px] text-[#c5a391] font-medium">Say</span>
-              <span className="font-serif text-2xl italic text-[#1a1615]">Yes</span>
+            
+            {/* Floating "Say Yes" badge - adjusted size for mobile */}
+            <div className="absolute -bottom-4 -left-4 bg-[#ffffff] p-4 md:p-6 rounded-full shadow-2xl animate-float pointer-events-none z-20">
+              <div className="flex flex-col items-center">
+                <span className="text-[8px] md:text-[10px] uppercase tracking-[3px] text-[#c5a391] font-medium">Say</span>
+                <span className="font-serif text-xl md:text-2xl italic text-[#1a1615]">Yes</span>
+              </div>
             </div>
           </div>
         </Reveal>
       </div>
     </div>
 
-    <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-4 opacity-40">
+    {/* Scroll Indicator */}
+    <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-4 opacity-40">
       <span className="text-[9px] uppercase tracking-[4px] text-[#1a1615]/50">Scroll</span>
-      <div className="w-[1px] h-12 bg-gradient-to-b from-[#c5a391] to-transparent relative overflow-hidden">
+      <div className="w-[1px] h-8 md:h-12 bg-gradient-to-b from-[#c5a391] to-transparent relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-[#1a1615] animate-scroll-line" />
       </div>
     </div>
@@ -382,57 +384,42 @@ const Services = () => {
 };
 
 const Testimonials = () => {
-  const [offset, setOffset] = useState(0);
-  const driftRef = useRef(null);
-
-  const words = [
-    { name: 'Priya & Rohan', role: 'Wedding in Udaipur', quote: "Working with Vardhan felt like having a friend who happened to be a genius. They didn't just take photos; they captured how we felt." },
-    { name: 'Ananya S.', role: 'Editorial Session', quote: "I’ve never felt more beautiful or more myself. The light was magic, and the atmosphere was so calm and professional." },
-    { name: 'Michael & Sarah', role: 'Legacy Film', quote: "We cried when we saw our film. It's not just a video; it's a piece of art that we will treasure for the rest of our lives." },
-    { name: 'Kiran J.', role: 'Destination Wedding', quote: "The attention to detail was incredible. They were invisible when they needed to be and guided us perfectly during the portraits." },
+  // Using your new requested data and variable names
+  const testimonials = [
+    { name: "Ananya & Arjun", location: "Hyderabad", text: "They captured the soul of our wedding. Every frame feels like a soft, warm memory come to life." },
+    { name: "Meera R.", location: "Dubai", text: "Incredible attention to light. The most professional and poetic team we've ever worked with." },
+    { name: "Siddharth K.", location: "London", text: "A truly luxury experience. The final gallery was a cinematic masterpiece that we'll treasure forever." },
+    { name: "Priya V.", location: "Mumbai", text: "Soft, romantic, and exactly what I dreamed of. They made the entire day feel effortless." },
   ];
 
-  const extendedWords = [...words, ...words];
-
-  useEffect(() => {
-    let currentOffset = 0;
-    const animateDrift = () => {
-      currentOffset -= 0.3;
-      if (currentOffset <= -2000) currentOffset = 0;
-      setOffset(currentOffset);
-      driftRef.current = requestAnimationFrame(animateDrift);
-    };
-
-    driftRef.current = requestAnimationFrame(animateDrift);
-    return () => cancelAnimationFrame(driftRef.current);
-  }, []);
+  const COLORS = {
+    luxeObsidian: '#1a1615',
+  };
 
   return (
-    <section id="kind-words" className="py-32 md:py-48 bg-[#1e1712] overflow-hidden relative">
-      <div className="absolute inset-0 opacity-[0.032] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjY1IiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI24pIi8+PC9zdmc+')] shadow-inner" />
-      <div className="max-w-7xl mx-auto px-6 mb-20 text-center relative z-10">
+    <section id="kind-words" className="py-40 bg-[#fdfbf9] overflow-hidden border-y border-[#1a1615]/5 relative">
+      <div className="max-w-[1400px] mx-auto px-12 mb-20 text-center">
         <Reveal>
-          <span className="text-[10px] uppercase tracking-[6px] text-[#e08b73]/70 mb-4 block">Validation</span>
-          <h2 className="font-serif text-4xl md:text-6xl italic text-[#fdfbf9]">Kind Words</h2>
+          <span className="text-[10px] uppercase tracking-[6px] font-bold text-[#c5a391]">Validation</span>
+          <h2 className="text-5xl italic font-serif mt-4" style={{ color: COLORS.luxeObsidian }}>Client Legacies</h2>
         </Reveal>
       </div>
 
-      <div className="relative w-full z-10">
-        <div ref={driftRef} className="flex space-x-8 px-8" style={{ transform: `translateX(${offset}px)`, willChange: 'transform' }}>
-          {extendedWords.map((item, i) => (
-            <div key={i} className="min-w-[340px] md:min-w-[420px] bg-white/[0.04] border border-[#e08b73]/10 p-10 md:p-14 rounded-[4px] relative group hover:bg-white/[0.06] transition-all duration-500">
-              <div className="absolute top-6 left-8 font-serif text-8xl text-[#e08b73]/10 italic pointer-events-none">“</div>
-              <p className="font-serif text-xl italic text-[#fdfbf9]/90 leading-relaxed mb-10 relative z-10">{item.quote}</p>
-              <div className="w-8 h-[1px] bg-[#e08b73]/50 mb-6" />
-              <div className="flex items-center space-x-4">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#e08b73] to-[#e8d5c8] flex items-center justify-center text-[11px] font-medium text-[#5d4a44]">
-                  {item.name[0]}
-                </div>
-                <div>
-                  <h4 className="text-[11px] uppercase tracking-[3px] text-[#e08b73]">{item.name}</h4>
-                  <p className="text-[10px] text-[#fdfbf9]/30 mt-1">{item.role}</p>
-                </div>
-              </div>
+      <div className="flex overflow-hidden group">
+        {/* We use the animate-scroll-horizontal class which is already in your CSS below */}
+        <div className="flex gap-10 animate-scroll-horizontal py-10 hover:[animation-play-state:paused]">
+          {[...testimonials, ...testimonials, ...testimonials].map((t, i) => (
+            <div key={i} className="flex-shrink-0 w-[450px] p-14 bg-white rounded-[40px] border border-[#1a1615]/5 shadow-sm hover:shadow-[0_40px_80px_rgba(26,22,21,0.08)] hover:-translate-y-4 transition-all duration-700">
+               {/* Using the Camera icon as a decorative quote mark since it's already in your imports */}
+               <Camera className="w-10 h-10 text-[#c5a391] opacity-20 mb-6" />
+               <p className="text-xl italic font-serif leading-relaxed mb-10 text-gray-700">"{t.text}"</p>
+               <div className="flex items-center gap-4">
+                  <div className="w-10 h-[1px] bg-[#c5a391]" />
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[3px] font-bold" style={{ color: COLORS.luxeObsidian }}>{t.name}</p>
+                    <p className="text-[9px] uppercase tracking-[2px] opacity-40">{t.location}</p>
+                  </div>
+               </div>
             </div>
           ))}
         </div>
@@ -531,12 +518,12 @@ const App = () => (
 
       :root {
         --bg-pure: #ffffff;
-        --bg-texture: #fdfbf9;
+        --bg-texture: #f5f0f0;
         --text-main: #1a1615;
         --text-body: #3d3533;
         --text-muted: #8c827f;
-        --accent-luxe: #c5a391;
-        --accent-silk: #f4eded;
+        --accent-luxe: #e9dfea;
+        --accent-silk: #f8eef5;
         --border-silk: rgba(26, 22, 21, 0.08);
         --shadow-premium: rgba(26, 22, 21, 0.12);
         --interaction-glow: rgba(26, 22, 21, 0.40);
